@@ -2,7 +2,7 @@ import time, os, sys
 
 def typewriter(message):
     for char in message:
-            print(char)
+            sys.stdout.write(char)
             sys.stdout.flush()
             
             if char != "\n":
