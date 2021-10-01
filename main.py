@@ -1,4 +1,5 @@
 import time, os, sys
+import colours
 
 def typewriter(message):
     for char in message:
