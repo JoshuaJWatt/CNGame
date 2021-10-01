@@ -1,5 +1,4 @@
 import time, os, sys
-from colorama import Fore, Back, Style
 import colours
 
 def typewriter(message):
@@ -13,4 +12,7 @@ def typewriter(message):
                 time.sleep(1)
 
 
-colours.prDark("hello world")
+def main():
+	return(1)
+
+main();
