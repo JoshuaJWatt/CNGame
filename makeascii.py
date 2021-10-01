@@ -12,6 +12,7 @@ def transform_ascii(image_file):
         for w in range(0,image_file.size[0]): 
             gray = image_file.getpixel((w,h))
             code_pic = code_pic + CODE_LIB[int(((count-1)*gray)/256)]
+            # code_pic = code_pic + str(int(((count-1)*gray)/256))
         code_pic = code_pic + "\n" 
     return code_pic
 
