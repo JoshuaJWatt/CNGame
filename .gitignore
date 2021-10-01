@@ -112,3 +112,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+timsgame.py
+badapple.jpg
+result.txt
