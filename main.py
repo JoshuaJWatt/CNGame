@@ -13,13 +13,9 @@ def typewriter(message):
 
 
 def main():
-    c.cprint("hello world", "red", "green")
-    c.cprint("hello world")
+    c.setforegroundrgb(245, 23, 124)
+    c.setbackgrounfrgb(23, 45, 152)
     print("hello world")
-
-    c.tileprint()
-    c.tileprint(n = 5)
-    c.tileprint("green")
     return(1)
 
 main();

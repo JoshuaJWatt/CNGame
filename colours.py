@@ -87,3 +87,9 @@ def tileprint(colour = "white", n = 1):
 		print("\033[{}m {} \033[0m".format(col, tiles))
 	else:
 		print("\033[{}m \033[0m".format(col))
+
+def setforegroundrgb(r, g, b):
+	print("\033[38;2;{};{};{}m".format(r, g, b))
+
+def setbackgrounfrgb(r, g, b):
+	print("\033[48;2;{};{};{}m".format(r, g, b))
