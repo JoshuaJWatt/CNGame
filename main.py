@@ -1,5 +1,5 @@
 import time, os, sys
-import colours
+import colours as c
 
 def typewriter(message):
     for char in message:
@@ -13,6 +13,13 @@ def typewriter(message):
 
 
 def main():
-	return(1)
+    c.cprint("hello world", "red", "green")
+    c.cprint("hello world")
+    print("hello world")
+
+    c.tileprint()
+    c.tileprint(n = 5)
+    c.tileprint("green")
+    return(1)
 
 main();
