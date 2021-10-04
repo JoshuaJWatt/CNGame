@@ -18,6 +18,7 @@ def viewwindow(centre = (0,0)):
 		for j in range(viewsize):
 			# If we're too close to the edge, we'll get an index error, so we want to catch that
 			try world[centre[0]-i]:
-			except IndexError:
+			
+				except IndexError:
 				break
 

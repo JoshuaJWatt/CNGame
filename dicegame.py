@@ -77,4 +77,17 @@ def dicegame(cpcheat = 0, skew = None):
 			win = 0
 		return(win)
 
-dicegame()
+def adjustbias(wins, games):
+	'''adjusts the bias of the cp depending on the ratio of player wins'''
+	ratio = wins/(games-wins) # the ratio of wins to losses, the cp wants to tend this to 1.
+	
+
+def bestof(n = 3):
+	gamecnt = 0
+	wincnt = 0
+	while wincnt < n/2 + 1:
+		wincnt += dicegame
+		gamecnt += 1
+		print("You have won {} out of {} games".format(wincnt,gamecnt))
+
+bestof()
