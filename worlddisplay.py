@@ -1,21 +1,23 @@
 import colours
-import sys
+import sys, os
 
 worldsize = [5,5]
 
-world = [["|",".","L","=","=","¬"],
-		 ["|",".",".",".",".","|"],
+world = [["|","x","L","=","=","¬"],
+		 ["|",".",".",".",".","D"],
 		 ["|","=","=",".","/","="],
 		 ["|",".",".",".","|","+"],
-		 ["|",".","|",".","L","¬"],
-		 ["|",".","|","x",".","|"],
-		 ["L","=","┴","=","=","/"]]
+		 ["D",".","|",".","L","¬"],
+		 ["|",".","|",".",".","D"],
+		 ["L","=","┴","D","=","/"]]
 
 viewsize = 2
 
-playersprite = "x"
+playerpos = (0,1)
 
+playersprite = "x"
 floortile = "."
+doortile = "D"
 
 def viewwindow(centre = (0,0)):
 	# This will do the columns
@@ -53,26 +55,49 @@ def setplayerloc(x, y):
 	'''Use this to teleport the player. Usually to the start of the map'''
 
 def moveplayer(x = 0, y = 0):
+	global playerpos
+	global world
 	for i in range(len(world)):
+		#locate the player sprite in the world, we probably don't need to do this anymore
 		try:
 			loc = [world[i].index(playersprite)]
 			loc.append(i)
 			# loc.reverse()
-			print(world[(loc[1])+y][(loc[0])+x])
+			# print(world[(loc[1])+y][(loc[0])+x])
+		except UnboundLocalError:
+			loc = playerpos
 		except ValueError:
 			continue
 		except IndexError:
 			print("Can't move that far, you'd fall off the world")
 			return(False)
 	if world[(loc[1])+y][(loc[0])+x] != floortile and world[(loc[1])+y][(loc[0])+x] != playersprite:
-		print("You can't walk through walls, sadly")
+		if world[(loc[1])+y][(loc[0])+x] == doortile:
+			print("Door found")
+		else:
+			print("You can't walk through walls, sadly")
 	else:
 		world[loc[1]][loc[0]] = floortile
 		loc[0] += x
 		loc[1] += y
 		world[loc[1]][loc[0]] = playersprite
+		playerpos = (loc[0],loc[1])
 
-# printview(viewwindow((4,4)))
+def gamemap():
+	os.system('cls')
+	moveplayer(0,0)
+	while True:
+		printview(viewwindow(playerpos))
+		input_ = input("where to? ")
+		os.system('cls')
+		if input_ == "n":
+			moveplayer(0,-1)
+		elif input_ == "s":
+			moveplayer(0,1)
+		elif input_ == "e":
+			moveplayer(1,0)
+		elif input_ == "w":	
+			moveplayer(-1,0)
+		
 
-moveplayer(0, -3)
-printview(world)
+gamemap()
