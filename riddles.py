@@ -1,6 +1,7 @@
 import random as r
 
 def randriddle(prev = None):
+	'''selects and asks a random riddle, returns a bool of whether the answer was correct'''
 	questions = [
 		"When is it bad luck to see a cat?     ",
 		"What do you get if you cross a Snowman with a witch?     ",
