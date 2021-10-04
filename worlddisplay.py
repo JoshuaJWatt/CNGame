@@ -22,19 +22,19 @@ viewsize = 1
 #         sum_ = sum(arr) - self.world[x,y]
 #         return(sum_)
 		
-def viewwindow(centre = (0,0)):
-	view = []
-	for i in range(viewsize):
-		view.append([])
-	for i in range(viewsize): # The row we're on
-		for j in range(viewsize): # the column we're on
-			# If we're too close to the edge, we'll get an index error, so we want to catch that
-			try: view[i].append(world[centre[0]-(viewsize - i)])
-			except IndexError:
-				view[i].append(' ')
-	return(view)
+# def viewwindow(centre = (0,0)):
+# 	view = []
+# 	for i in range(viewsize):
+# 		view.append([])
+# 	for i in range(viewsize): # The row we're on
+# 		for j in range(viewsize): # the column we're on
+# 			# If we're too close to the edge, we'll get an index error, so we want to catch that
+# 			try: view[i].append(world[centre[0]-(viewsize - i)])
+# 			except IndexError:
+# 				view[i].append(' ')
+# 	return(view)
 
-def viewwindow2(centre = (0,0)):
+def viewwindow(centre = (0,0)):
 	# This will do the columns
 	lowerbound = (centre[1]-viewsize)
 	upperbound = (centre[1]+viewsize+1)
@@ -55,10 +55,10 @@ def viewwindow2(centre = (0,0)):
 	if upperbound > len(world[0]) + 1:
 		upperbound = len(world[0])
 
-	for i in range(len(view[0] + 1)):
+	for i in range(len(view)):
 		view[i] = view[i][lowerbound:upperbound]
 
 	return(view)
 
 
-print(viewwindow2((1,1)))
+print(viewwindow((3,2)))
