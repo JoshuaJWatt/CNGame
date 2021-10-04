@@ -1,14 +1,19 @@
 import colours
+import sys
 
 worldsize = [5,5]
 
-world = [[0,0,0,0,0],
-		 [0,1,0,1,0],
-		 [0,0,0,0,0],
-		 [0,1,0,1,0],
-		 [0,0,0,0,0]]
+world = [["|",".","L","=","=","¬"],
+		 ["|",".",".",".",".","|"],
+		 ["|","=","=",".","/","="],
+		 ["|",".",".",".","|","+"],
+		 ["|",".","|",".","L","¬"],
+		 ["|",".","|","x",".","|"],
+		 ["L","=","┴","=","=","/"]]
 
-viewsize = 1
+viewsize = 2
+
+playersprite = "x"
 
 def viewwindow(centre = (0,0)):
 	# This will do the columns
@@ -36,5 +41,32 @@ def viewwindow(centre = (0,0)):
 
 	return(view)
 
+def printview(view):
+	for i in view:
+		for j in i:
+			sys.stdout.write(j)
+		sys.stdout.write("\n")
 
-print(viewwindow((3,2)))
+def setplayerloc(x, y):
+	'''Use this to teleport the player. Usually to the start of the map'''
+
+def moveplayer(x = 0, y = 0):
+	for i in range(len(world)):
+		try:
+			loc = [world[i].index(playersprite)]
+			loc.append(i)
+			# i[loc] = "."
+			print(world[(loc[1])+y][(loc[0])+x])
+		except ValueError:
+			continue
+	if world[(loc[1])+y][(loc[0])+x] != ("." or "x"):
+		print("You can't walk through walls, sadly")
+	else:
+		loc[0] += x
+		loc[1] += y
+	world[loc[0]][loc[1]] = "x"
+
+
+# printview(viewwindow((4,4)))
+
+moveplayer()
