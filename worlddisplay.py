@@ -66,7 +66,6 @@ def moveplayer(x = 0, y = 0):
 		loc[1] += y
 	world[loc[0]][loc[1]] = "x"
 
-
 # printview(viewwindow((4,4)))
 
 moveplayer()
