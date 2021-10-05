@@ -1,5 +1,5 @@
 import time, os, sys
-import colours
+import colours as c
 
 def typewriter(message):
     for char in message:
@@ -13,6 +13,9 @@ def typewriter(message):
 
 
 def main():
-	return(1)
+    c.setforegroundrgb(245, 23, 124)
+    c.setbackgrounfrgb(23, 45, 152)
+    print("hello world")
+    return(1)
 
 main();
