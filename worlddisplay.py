@@ -7,26 +7,44 @@ import time
 
 worldsize = [5,5]
 
-world = [["|","x","L","=","D","¬"],
-		 ["|",".",".",".",".","D"],
-		 ["|","=","=",".","/","="],
-		 ["|",".",".",".","D","+"],
-		 ["D",".","|",".","L","¬"],
-		 ["|",".","D",".",".","D"],
-		 ["L","=","┴","D","=","/"]]
+# world = [["|","x","L","=","D","¬"],
+# 		 ["|",".",".",".",".","D"],
+# 		 ["|","=","=",".","/","="],
+# 		 ["|",".",".",".","D","+"],
+# 		 ["D",".","|",".","L","¬"],
+# 		 ["|",".","D",".",".","D"],
+# 		 ["L","=","┴","D","=","/"]]
 
-viewsize = 2
+world =[["=","=","=","=","=","=","D","=","=","=","="],
+		["=","=","="," ","=","=","x","=","=","=","="],
+		["="," "," "," "," "," "," ","=","D","=","="],
+		["="," ","=","=","=","=","=","="," "," ","="],
+		["="," ","D","=","=","=","=","D"," ","=","="],
+		["="," ","=","=","=","=","=","="," ","=","="],
+		["="," "," "," "," "," "," "," "," ","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","D"," ","D","=","=","=","D","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","D","=","="," ","=","=","=","="," ","="],
+		["="," "," "," "," "," "," "," "," "," ","="],
+		["=","=","=","=","=","=","=","="," ","=","="],
+		["=","=","=","=","=","=","=","=","D","=","="]]
 
-playerpos = (0,1)
+viewsize = 1
+
+playerpos = (0,6)
 playerscore = 0
 
-usabledoors = [[5,1],[0,4],[5,5],[3,6]]
+usabledoors = [[7,4],[1,13],[5,10],[9,10]]
 currentdoor = []
 gamelist = [0, 1, 2, 3]
-exit = [0,1]
+exit = [0,6]
 
 playersprite = "x"
-floortile = "."
+floortile = " "
 doortile = "D"
 
 def reset():
@@ -96,7 +114,7 @@ def doorcheck(x, y):
 			print("You type the code in and find the door will now open")
 			print("You get away and live a happy life or something, idk")
 		else:
-			print("The door won't budge")
+			print("The door won't budge, and you don't know the code yet")
 	else:
 		return(0)
 
@@ -122,6 +140,7 @@ def gamefuncer(n):
 def moveplayer(x = 0, y = 0):
 	global playerpos
 	global world
+	loc = [playerpos[0],playerpos[1]]
 	for i in range(len(world)):
 		#locate the player sprite in the world, we probably don't need to do this anymore
 		try:
@@ -130,7 +149,7 @@ def moveplayer(x = 0, y = 0):
 			# loc.reverse()
 			# print(world[(loc[1])+y][(loc[0])+x])
 		except UnboundLocalError:
-			loc = playerpos
+			[playerpos[0],playerpos[1]]
 		except ValueError:
 			continue
 		except IndexError:
