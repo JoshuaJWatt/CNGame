@@ -1,5 +1,9 @@
 import random as r
 import time
+import os
+
+def dicepreamble():
+	print("The preamble and art for the dice game")
 
 def roll(skew = None):
 	if skew == None:
@@ -28,13 +32,14 @@ def dicegame(cpcheat = 0, skew = None):
 				print("you roll your die")
 				time.sleep(1)
 				print("and it lands on....")
-				time.sleep(4)
+				time.sleep(1)
 				proll = roll()
 				print(proll)
 				time.sleep(1)
 				playerscore += proll
 			else:
 				playerpass = 1
+			os.system('cls')
 			print("You are on ", playerscore)
 			if playerscore > 21:
 				win = 0
@@ -69,7 +74,7 @@ def dicegame(cpcheat = 0, skew = None):
 				win = 1
 				print("The house went bust, you win")
 				return(win)
-		if playerscore > cpscore or cpcnt > pcnt:
+		if playerscore > cpscore or (playerscore == cpscore and cpcnt > pcnt):
 			win = 1
 			print("You won")
 		else:
@@ -84,10 +89,12 @@ def adjustbias(wins, games):
 
 def bestof(n = 3):
 	'''Runs a best of n of our dice game'''
+	os.system('cls')
+	dicepreamble()
 	gamecnt = 0
 	wincnt = 0
 	while wincnt < n/2 + 1 and gamecnt < n:
-		wincnt += dicegame
+		wincnt += dicegame()
 		gamecnt += 1
 		print("You have won {} out of {} games".format(wincnt,gamecnt))
 	if wincnt >= n/2 + 1:
@@ -97,5 +104,3 @@ def bestof(n = 3):
 		print("You lost the best of ", n)
 		win = 0
 	return(win)
-
-bestof()

@@ -81,7 +81,7 @@ def cprint(text, fgcolour = "white", bgcolour = "black"):
 	print("\033[{};{}m {} \033[0m".format(fg, bg, text))
 
 def rgbprint(text, r, g, b):
-	print("\033[48;2;{};{};{}m {} \033[0m".format(r, g, b, text))
+	print("\033[38;2;{};{};{}m {} \033[0m".format(r, g, b, text))
 
 def tileprint(colour = "white", n = 1):
 	col = bgcolours[colour]
