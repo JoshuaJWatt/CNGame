@@ -1,19 +1,23 @@
 import colours
 import sys, os
+import random
 
 worldsize = [5,5]
 
-world = [["|","x","L","=","=","¬"],
+world = [["|","x","L","=","D","¬"],
 		 ["|",".",".",".",".","D"],
 		 ["|","=","=",".","/","="],
-		 ["|",".",".",".","|","+"],
+		 ["|",".",".",".","D","+"],
 		 ["D",".","|",".","L","¬"],
-		 ["|",".","|",".",".","D"],
+		 ["|",".","D",".",".","D"],
 		 ["L","=","┴","D","=","/"]]
 
 viewsize = 2
 
 playerpos = (0,1)
+
+usabledoors = [[5,1],[0,4],[5,5],[3,6]]
+gamelist = [0, 1, 2, 3]
 
 playersprite = "x"
 floortile = "."
@@ -54,6 +58,18 @@ def printview(view):
 def setplayerloc(x, y):
 	'''Use this to teleport the player. Usually to the start of the map'''
 
+def doorcheck(x, y):
+	if [x,y] in usabledoors:
+		return(1)
+	else:
+		return(0)
+
+def choosegame():
+	global gamelist
+	game = random.choice(gamelist)
+	gamelist.pop(game)
+	return(game)
+
 def moveplayer(x = 0, y = 0):
 	global playerpos
 	global world
@@ -73,7 +89,18 @@ def moveplayer(x = 0, y = 0):
 			return(False)
 	if world[(loc[1])+y][(loc[0])+x] != floortile and world[(loc[1])+y][(loc[0])+x] != playersprite:
 		if world[(loc[1])+y][(loc[0])+x] == doortile:
-			print("Door found")
+			print("You found a door")
+			if doorcheck(loc[0]+x,loc[1]+y) == 0:
+				print("The door is locked")
+			else:
+				print("It's unlocked")
+				doorin = input("Do you want to go in? ")
+				doorin = doorin.lower()
+				if "y" in doorin:
+					print("chooses a game to start")
+					game = choosegame()
+					print(game)
+					return game
 		else:
 			print("You can't walk through walls, sadly")
 	else:
@@ -89,6 +116,7 @@ def gamemap():
 	while True:
 		printview(viewwindow(playerpos))
 		input_ = input("where to? ")
+		input_ = input_.lower()
 		os.system('cls')
 		if input_ == "n":
 			moveplayer(0,-1)
