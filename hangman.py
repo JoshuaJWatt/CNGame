@@ -1,5 +1,6 @@
 from random import choice
 import os
+import time
 
 def hangmanpreamble():
     print("The preamble and art for the hangman game")
@@ -113,20 +114,26 @@ def hangman():
         else:
             if guess in guessed or guess in wrong:
                 print("You have already tried this letter.", guess)
+                time.sleep(1)
             elif guess in words:
                 print("Oh no! You got one >:(")
                 guessed.append(guess)
+                time.sleep(1)
             else:
                 print("NOPE! Haha, try again...")
                 tries -= 1
                 wrong.append(guess)
+                time.sleep(1)
 
         print()
+        os.system('cls')
 
     if tries:
         print("You guessed correctly:", words)
+        time.sleep(2)
         return(1)
     else:
         print("The word was", words, "better luck next time.")
+        time.sleep(2)
         return(0)
 

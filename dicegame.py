@@ -26,22 +26,21 @@ def dicegame(cpcheat = 0, skew = None):
 		while playerpass == 0: 
 			proll = 0
 			pcnt += 1
-			os.system('cls')
-			print("You are on ", playerscore)
 			# print("You are on ", playerscore)
 			in_ = input("Would you like to roll? (y/n): ")
 			if in_ == "y":
 				print("you roll your die")
 				time.sleep(1)
 				print("and it lands on....")
-				time.sleep(4)
+				time.sleep(1)
 				proll = roll()
 				print(proll)
 				time.sleep(1)
 				playerscore += proll
 			else:
 				playerpass = 1
-			
+			os.system('cls')
+			print("You are on ", playerscore)
 			if playerscore > 21:
 				win = 0
 				print("You went bust")
@@ -75,7 +74,7 @@ def dicegame(cpcheat = 0, skew = None):
 				win = 1
 				print("The house went bust, you win")
 				return(win)
-		if playerscore > cpscore or cpcnt > pcnt:
+		if playerscore > cpscore or (playerscore == cpscore and cpcnt > pcnt):
 			win = 1
 			print("You won")
 		else:

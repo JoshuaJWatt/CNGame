@@ -1,5 +1,5 @@
 import random as r
-from time import process_time
+import time
 import os
 
 def riddlepreamble():
@@ -23,7 +23,11 @@ def randriddle(prev = None):
 	for i in in_:
 		in_ = in_.replace(" ","")
 	
-	if in_.find(answers[int_]) == 1:
+	if in_.find(answers[int_]) != -1:
+		print("correct")
+		time.sleep(2)
 		return(1)
 	else:
+		print("wrong")
+		time.sleep(2)
 		return(0)

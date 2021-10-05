@@ -164,7 +164,7 @@ def gamemap():
 	moveplayer(0,0)
 	while True:
 		printview(viewwindow(playerpos))
-		input_ = input("where to? ")
+		input_ = input("where to? (n/s/e/w) ")
 		input_ = input_.lower()
 		os.system('cls')
 		if input_ == "n":
@@ -189,18 +189,20 @@ def room():
 	while loop == True:
 		roomres = gamefuncer(game)
 		if roomres == 1:
+			time.sleep(2)
 			os.system('cls')
-			print("You won the room, you find yourself back outside the door")
+			print("You won the room, you find yourself back outside the door with a new number written on your hand")
+			time.sleep(2)
 			playerscore += 1
 			usabledoors.remove(currentdoor)
 			loop = False
 			
 		else:
-			playerscore -= 1
 			print("You lost the room")
-			rid = riddles.randriddle
+			time.sleep(2)
+			rid = riddles.randriddle()
 			if rid == 1:
-				playerscore += 1
+				continue
 
 			else:
 				os.system('cls')

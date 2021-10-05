@@ -16,5 +16,4 @@ def typewriter(message):
 def main():
     while True:
         worlddisplay.gamemap()
-
 main();

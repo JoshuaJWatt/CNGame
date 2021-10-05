@@ -15,14 +15,14 @@ def rockpaperscissors():
 		player = player.capitalize()
 		if player == Black_cat:
 			print("Draw")
-			print("Let's play again!" )
+			print("I'll give you another chance" )
 		elif player == "Rock":
 			if Black_cat == "Paper":
 				print("You lose!", Black_cat, "covers", player)
 				win = 0
 				
 			else:
-				print("You win!", player, "smashes", Black_cat)
+				print("Oh well...you win.", player, "smashes", Black_cat)
 				win = 1
 				
 		elif player == "Paper":
@@ -31,7 +31,7 @@ def rockpaperscissors():
 				win = 0
 				
 			else:
-				print("You win!", player,"covers", Black_cat)
+				print("Oh well...you win.", player,"covers", Black_cat)
 				win = 1
 				
 		elif player == "Scissors":
@@ -40,7 +40,7 @@ def rockpaperscissors():
 				win = 0
 				
 			else:
-				print("You win!", player, "cut", Black_cat)
+				print("Oh well...you win.", player, "cut", Black_cat)
 				win = 1
 				
 		else:
