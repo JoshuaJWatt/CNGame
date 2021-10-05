@@ -18,9 +18,9 @@ def intro():
 	")
 	message_3= ("You go in the hallway, which suddenly becomes dark. The door slams shut behind you. \n\
 	You hear a noise. \n\
-	It is the ringing of an old telephone. You pick up the receiver and a strange voice tells you: \n\
+	It is the ringing of an old telephone. You pick up the receiver and a strange voice speaks: \n\
 	")
-	message_4= ("You may have passed this time but the rest wont be so easy! The gruff voice informs you that in order to get out of the house alive you must pass everything ahead. For each challenge you complete you will receive a number, when used together the numbers provide a code to the exit door and you are free to leave. \n\
+	message_4= ("In order to get out of the house alive you must pass everything ahead. For each challenge you complete you will receive a number, when used together the numbers provide a code to the exit door and you are free to leave. \n\
 	But nobody ever leaves...")
 
 	def typewriter(message_1):
