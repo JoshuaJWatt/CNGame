@@ -1,4 +1,9 @@
 import random as r
+from time import process_time
+import os
+
+def riddlepreamble():
+	print("The preamble and art for the riddles")
 
 def randriddle(prev = None):
 	'''selects and asks a random riddle, returns a bool of whether the answer was correct'''
@@ -10,6 +15,8 @@ def randriddle(prev = None):
 		"A zombie and a mummy have a new house and it has all rooms except for one, what room is it?     "
 		]
 	answers = ["mouse","coldspell","icecream","mummy","livingroom"]
+	os.system('cls')
+	riddlepreamble()
 
 	int_ = r.randint(0, len(questions) - 1)
 	in_ = input(questions[int_])

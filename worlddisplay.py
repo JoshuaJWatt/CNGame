@@ -1,6 +1,9 @@
-import colours
+from math import trunc
+import colours, hangman, dicegame, riddles
+import rockpaperscissors as rps
 import sys, os
 import random
+import time
 
 worldsize = [5,5]
 
@@ -15,13 +18,38 @@ world = [["|","x","L","=","D","¬"],
 viewsize = 2
 
 playerpos = (0,1)
+playerscore = 0
 
 usabledoors = [[5,1],[0,4],[5,5],[3,6]]
+currentdoor = []
 gamelist = [0, 1, 2, 3]
+exit = [0,1]
 
 playersprite = "x"
 floortile = "."
 doortile = "D"
+
+def reset():
+	global world
+	global viewsize
+	global playerscore
+	global usabledoors
+	global gamelist
+	global exit
+
+	world = [["|","x","L","=","D","¬"],
+		 ["|",".",".",".",".","D"],
+		 ["|","=","=",".","/","="],
+		 ["|",".",".",".","D","+"],
+		 ["D",".","|",".","L","¬"],
+		 ["|",".","D",".",".","D"],
+		 ["L","=","┴","D","=","/"]]
+	viewsize = 2
+	playerpos = (0,1)
+	playerscore = 0
+	usabledoors = [[5,1],[0,4],[5,5],[3,6]]
+	gamelist = [0, 1, 2, 3]
+	exit = [0,1]
 
 def viewwindow(centre = (0,0)):
 	# This will do the columns
@@ -56,11 +84,19 @@ def printview(view):
 		sys.stdout.write("\n")
 
 def setplayerloc(x, y):
-	'''Use this to teleport the player. Usually to the start of the map'''
+	'''PLACEHOLDER Use this to teleport the player. Usually to the start of the map. PLACEHOLDER'''
 
 def doorcheck(x, y):
+	global currentdoor
 	if [x,y] in usabledoors:
+		currentdoor = [x,y]
 		return(1)
+	if[x,y] == exit:
+		if playerscore == 4:
+			print("You type the code in and find the door will now open")
+			print("You get away and live a happy life or something, idk")
+		else:
+			print("The door won't budge")
 	else:
 		return(0)
 
@@ -69,6 +105,19 @@ def choosegame():
 	game = random.choice(gamelist)
 	gamelist.pop(game)
 	return(game)
+
+def gamefuncer(n):
+	if n == 0:
+		out = hangman.hangman()
+	elif n == 1:
+		out = dicegame.bestof()
+	elif n == 2:
+		out = riddles.randriddle()
+	elif n == 3:
+		out = rps.rockpaperscissors()
+	else:
+		return
+	return(out)
 
 def moveplayer(x = 0, y = 0):
 	global playerpos
@@ -98,9 +147,9 @@ def moveplayer(x = 0, y = 0):
 				doorin = doorin.lower()
 				if "y" in doorin:
 					print("chooses a game to start")
-					game = choosegame()
-					print(game)
-					return game
+					# out = gamefuncer(choosegame())
+					room()
+					# return out
 		else:
 			print("You can't walk through walls, sadly")
 	else:
@@ -126,6 +175,37 @@ def gamemap():
 			moveplayer(1,0)
 		elif input_ == "w":	
 			moveplayer(-1,0)
-		
 
-gamemap()
+def room():
+	global playerscore
+	global usabledoors
+	global currentdoor
+	os.system('cls')
+	print("You enter the room")
+	time.sleep(2)
+	game = choosegame()
+	loop = True
+
+	while loop == True:
+		roomres = gamefuncer(game)
+		if roomres == 1:
+			os.system('cls')
+			print("You won the room, you find yourself back outside the door")
+			playerscore += 1
+			usabledoors.remove(currentdoor)
+			loop = False
+			
+		else:
+			playerscore -= 1
+			print("You lost the room")
+			rid = riddles.randriddle
+			if rid == 1:
+				playerscore += 1
+
+			else:
+				os.system('cls')
+				print("Looks like you're goin back to the start")
+				time.sleep(2)
+				reset()
+				loop = False
+				break
