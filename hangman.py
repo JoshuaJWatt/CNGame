@@ -91,6 +91,7 @@ def hangman():
     win = -1
     tries = 6
 
+    print("You wont be able to beat me! Give it your best shot, lets play hangman.")
     while tries > 0 and win < 0:
         out = ""
         for letter in words:
@@ -101,7 +102,6 @@ def hangman():
 
         if out == words:
             break
-        print("You wont be able to beat me! Give it your best shot, lets play hangman.")
         print(display_hangman(tries))
         print("\n")
         print("What's your guess?:", out)
@@ -125,7 +125,6 @@ def hangman():
                 wrong.append(guess)
                 time.sleep(1)
 
-        print()
         os.system('cls')
 
     if tries:

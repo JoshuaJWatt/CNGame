@@ -1,4 +1,3 @@
-from math import trunc
 import colours, hangman, dicegame, riddles
 import rockpaperscissors as rps
 import sys, os
@@ -41,6 +40,7 @@ playerscore = 0
 usabledoors = [[7,4],[1,13],[5,10],[9,10]]
 currentdoor = []
 gamelist = [0, 1, 2, 3]
+playedlist = []
 exit = [0,6]
 
 playersprite = "x"
@@ -50,24 +50,35 @@ doortile = "D"
 def reset():
 	global world
 	global viewsize
+	global playerpos
 	global playerscore
 	global usabledoors
-	global gamelist
+	global playedlist
 	global exit
 
-	world = [["|","x","L","=","D","¬"],
-		 ["|",".",".",".",".","D"],
-		 ["|","=","=",".","/","="],
-		 ["|",".",".",".","D","+"],
-		 ["D",".","|",".","L","¬"],
-		 ["|",".","D",".",".","D"],
-		 ["L","=","┴","D","=","/"]]
-	viewsize = 2
-	playerpos = (0,1)
+	world = [["=","=","=","=","=","=","D","=","=","=","="],
+		["=","=","="," ","=","=","x","=","=","=","="],
+		["="," "," "," "," "," "," ","=","D","=","="],
+		["="," ","=","=","=","=","=","="," "," ","="],
+		["="," ","D","=","=","=","=","D"," ","=","="],
+		["="," ","=","=","=","=","=","="," ","=","="],
+		["="," "," "," "," "," "," "," "," ","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","D"," ","D","=","=","=","D","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","D","=","="," ","=","=","=","="," ","="],
+		["="," "," "," "," "," "," "," "," "," ","="],
+		["=","=","=","=","=","=","=","="," ","=","="],
+		["=","=","=","=","=","=","=","=","D","=","="]]
+	viewsize = 1
+	playerpos = (0,6)
 	playerscore = 0
-	usabledoors = [[5,1],[0,4],[5,5],[3,6]]
-	gamelist = [0, 1, 2, 3]
-	exit = [0,1]
+	usabledoors = [[7,4],[1,13],[5,10],[9,10]]
+	playedlist = []
+	exit = [0,6]
 
 def viewwindow(centre = (0,0)):
 	# This will do the columns
@@ -76,7 +87,7 @@ def viewwindow(centre = (0,0)):
 
 	if lowerbound < 0:
 		view = world[:upperbound]
-	elif upperbound > len(world[0]) + 1:
+	elif upperbound > len(world) + 1:
 		view = world[lowerbound:]
 	else:
 		view = world[lowerbound:upperbound]
@@ -120,8 +131,15 @@ def doorcheck(x, y):
 
 def choosegame():
 	global gamelist
-	game = random.choice(gamelist)
-	gamelist.pop(game)
+	global playedlist
+	chosen = 0
+	while chosen == 0:
+		game = random.choice(gamelist)
+		if game in playedlist:
+			continue
+		else:
+			playedlist.append(game)
+			chosen = 1
 	return(game)
 
 def gamefuncer(n):

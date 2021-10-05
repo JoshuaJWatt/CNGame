@@ -48,7 +48,8 @@ def dicegame(cpcheat = 0, skew = None):
 		while cppass == 0:
 			cproll = 0
 			cpcnt += 1
-			if ((cpscore <= 17 and cpcheat == 0) or cpscore < playerscore or (cpscore == playerscore and cpcnt > pcnt)) and skew == None:
+			# (cpscore <= 17 and cpcheat == 0) or 
+			if ((cpscore < playerscore or (cpscore == playerscore and cpcnt > pcnt)) and cpscore < 21) and skew == None:
 				print("Your opponent rolls their die")
 				time.sleep(1)
 				print("and it lands on...")
@@ -104,3 +105,7 @@ def bestof(n = 3):
 		print("You lost the best of ", n)
 		win = 0
 	return(win)
+
+
+# dicegame()
+# bestof()
