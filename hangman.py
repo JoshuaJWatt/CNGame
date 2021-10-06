@@ -1,9 +1,12 @@
 from random import choice
 import os
 import time
+from typewriter import typewriter
 
 def hangmanpreamble():
-    print("The preamble and art for the hangman game")
+    typewriter('''This room is covered with mist, it's vast and feels very eerie. \n\
+You cant make out much of the surroundings but feel the breeze of nearby movement on your skin. With your sight compromised you listen closely to discover sounds of fluttering and flapping. You feel a slight tingling in your hands, as you hold them in front of you to inspect a large leatherbound book floats perfectly into your palms. The pages flicker rapidly and stop a sudden. They display a hangman challenge and a voice from within the mist whispers...'''
+, speed = 100)
 
 def display_hangman(tries):
     stages = [  # final state: head, torso, both arms, and both legs
@@ -91,7 +94,7 @@ def hangman():
     win = -1
     tries = 6
 
-    print("You wont be able to beat me! Give it your best shot, lets play hangman.")
+    typewriter("You wont be able to beat me! Give it your best shot, lets play hangman.", speed = 5)
     while tries > 0 and win < 0:
         out = ""
         for letter in words:
@@ -136,3 +139,4 @@ def hangman():
         time.sleep(2)
         return(0)
 
+# hangman()

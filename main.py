@@ -1,19 +1,13 @@
 import time, os, sys
 import colours as c
-import worlddisplay, hangman, dicegame, riddles
-
-def typewriter(message):
-    for char in message:
-            sys.stdout.write(char)
-            sys.stdout.flush()
-            
-            if char != "\n":
-                time.sleep(0.1)
-            else:
-                time.sleep(1)
-
+import worlddisplay, hangman, dicegame, riddles, story
 
 def main():
-    while True:
+    play = True
+    play = story.intro()
+    while play == True:
         worlddisplay.gamemap()
+    os.system('cls')
+    story.thanks()
+
 main();
