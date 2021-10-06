@@ -2,15 +2,13 @@ from random import randint
 import os
 import time
 from colours import cprint
-
-from cv2 import CAP_PROP_EXPOSURE, putText
 from typewriter import typewriter
 
 from asciiimages import medfullwitch, witchface
 
 def rpspreamble():
 	typewriter('''You enter the room and stumble as a black cat runs between your legs. It must have been waiting outside the door, but you don't remember having seen it.
-Your eyes follow the cat as it makes it's way across the surprisingly messy room, climbing it's way through dead plants; over open, strewn books and around half mixed potions.
+Your eyes follow the cat as it makes it's way across the surprisingly messy room, climbing it's way through dead plants; over open, strewn books and around half-mixed potions.
 You notice, now, that there are messily drawn pentagrams all over, obviously redrawn in the same spots hundredes of times over. \n''')
 	cprint("MR SCRATCHY EARS! WHERE HAVE YOU BEEN?!?!?!", "red")
 	typewriter("While you were distracted, the cat had evidently made it to it's destination... \n\n")

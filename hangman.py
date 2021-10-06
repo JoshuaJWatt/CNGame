@@ -1,15 +1,25 @@
 from random import choice
 import os
 import time
+from colours import setpointercolour, resetpointer
 from typewriter import typewriter
 
 def hangmanpreamble():
-    typewriter('''This room is covered with mist, it's vast and feels very eerie. \n\
-You cant make out much of the surroundings but feel the breeze of nearby movement on your skin. With your sight compromised you listen closely to discover sounds of fluttering and flapping. You feel a slight tingling in your hands, as you hold them in front of you to inspect a large leatherbound book floats perfectly into your palms. The pages flicker rapidly and stop a sudden. They display a hangman challenge and a voice from within the mist whispers...'''
+    typewriter('''You enter a room covered with mist. It's vast, and feels very eerie. \n\
+You can't make out much of the surroundings but feel the breeze of nearby movement on your skin. With your sight compromised you listen closely to discover sounds of fluttering and flapping. You feel a slight tingling in your hands. As you hold them in front of you to inspect, a large leather-bound book floats perfectly into your palms. The pages flick rapidly and stop all of a sudden. The pages display a hangman challenge and a voice from within the mist whispers... \n\n'''
 , speed = 100)
 
 def display_hangman(tries):
-    stages = [  # final state: head, torso, both arms, and both legs
+    stages = [  """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -84,7 +94,9 @@ def display_hangman(tries):
 
 def hangman():
     os.system('cls')
+    setpointercolour("magenta")
     hangmanpreamble()
+    time.sleep(2)
     words = choice(["halloween", "pumpkin", "ghosts", "zombie", "vampire", "blood", "monster", "magical",
         "goblin", "haunted", "spirits", "paranormal", "phantom", "poltergeist", "possessed",
         "bones", "demon", "cemetery", "cursed", "skeleton", "frankenstein", "spider", "coffin", 
@@ -92,8 +104,9 @@ def hangman():
     guessed = []
     wrong = []
     win = -1
-    tries = 6
+    tries = 7
 
+    
     typewriter("You wont be able to beat me! Give it your best shot, lets play hangman.", speed = 5)
     while tries > 0 and win < 0:
         out = ""
@@ -123,20 +136,26 @@ def hangman():
                 guessed.append(guess)
                 time.sleep(1)
             else:
-                print("NOPE! Haha, try again...")
-                tries -= 1
-                wrong.append(guess)
-                time.sleep(1)
+                if tries == 0:
+                    print("Haha, no, you lose")
+                    time.sleep(2)
+                else:
+                    print("NOPE! Haha, try again...")
+                    tries -= 1
+                    wrong.append(guess)
+                    time.sleep(1)
 
         os.system('cls')
 
     if tries:
         print("You guessed correctly:", words)
         time.sleep(2)
+        resetpointer()
         return(1)
     else:
         print("The word was", words, "better luck next time.")
         time.sleep(2)
+        resetpointer()
         return(0)
 
-# hangman()
+hangman()
