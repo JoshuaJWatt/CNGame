@@ -1,10 +1,11 @@
 from random import randint
 import os
 import time
-from colours import cprint
+from colours import cprint, resetpointer, setforegroundrgb
 from typewriter import typewriter
 
 from asciiimages import medfullwitch, witchface
+# from worlddisplay import reset
 
 def rpspreamble():
 	typewriter('''You enter the room and stumble as a black cat runs between your legs. It must have been waiting outside the door, but you don't remember having seen it.
@@ -33,19 +34,26 @@ You notice, now, that there are messily drawn pentagrams all over, obviously red
 	time.sleep(5)
 
 	cprint('''"What ever will we do with this horrid person that took you from me, Mr Scratchy Ears?" ''', "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	typewriter("The cat looks at her, then you, then back to her, and gives a single meow \n")
 	cprint("That doesn't seem like a harsh enough punishment Mr Scratchy Ears, I was thinking we use their eyes for one of my potions, or grow some herbs from their head", "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(2)
 	cprint("MEOW", "black", "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	cprint("Yes, I suppose you were the one that got kidnapped","red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	cprint("meow", "black", "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	cprint("Very well, we'll do that then. But I'm choosing next time", "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	cprint("Doubtful.", "black", "red") 
+	setforegroundrgb(72,161,11)
 	time.sleep(0.5)
 	print("did that cat just speak?")
 	typewriter('''The witch approaches you, getting a little too close for comfort''')
@@ -53,21 +61,25 @@ You notice, now, that there are messily drawn pentagrams all over, obviously red
 	witchface()
 
 	cprint('''Mr Scratchy Ears has passed judgement.''', "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(1)
 	typewriter("You find your arms lifting up to face eachother. \n") 
 	cprint("By ruling of Mr Scratchy Ears, you are sentenced to", "red")
+	setforegroundrgb(72,161,11)
 	time.sleep(5)
 	cprint('''the dreaded paper, rock, scissors \n
 You'll play against your right hand, you'll not get me playing that game''', "red")
+	setforegroundrgb(72,161,11)
 	typewriter("you can see your right hand is raring to go, already preparing to make it's decision, obviously excited about it's new-found independence \n")
 	cprint("go on, I've not got all day", "red")
+	setforegroundrgb(72,161,11)
 	typewriter("she returns to her cat, almost immediately forgetting you exist.")
 
 def rockpaperscissors():
 	win = -1
 	list = ["Rock","Paper","Scissors",]
 	os.system('cls')
-	rpspreamble()
+	# rpspreamble()
 	while win < 0:
 		Black_cat = list[randint(0,2)]
 		player = input("Rock, Paper, Scissors?\nEnter your move\n")
@@ -108,6 +120,7 @@ def rockpaperscissors():
 
 def bestof(n = 3, debug = 0):
 	'''Runs a best of n of our dice game'''
+	setforegroundrgb(72,161,11)
 	os.system('cls')
 	rpspreamble()
 	gamecnt = 0
@@ -124,7 +137,9 @@ def bestof(n = 3, debug = 0):
 		print("You lost the best of ", n)
 		win = 0
 		print('''''')
+	resetpointer()
 	return(win)
 
 # rpspreamble()
 # rockpaperscissors()
+# bestof()

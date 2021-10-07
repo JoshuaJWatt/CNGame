@@ -173,5 +173,100 @@ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 ''')
 
+def old_telephone():
+    return(""".*(#%%%%%#(/.                                    
+                   ,&&&@@@@@&&&&&&&%&%%%%%&&&&&&&@@@@@&#%,                      
+             /&&@@&&&&&@@%#@&&&&&&&&&&&%%%%%###((((##((((#%&@@@/                
+        *&&&@@@&##%&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#(/%@@@&(           
+     &&&&@@@&##%&&@@@/  @@@@@@@%&%%%(*,,...    ./%%@@@@@/#@@@@&&&&@@@@@&@,      
+   (@@@@@&&#/(#&&@@@&.   .@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*   .@@@@&&%%&@@@@@&%    
+   %@@@@@@@&/(%&@@@@@@%     @@@@@@@@@&&&@@@@@@@@@@@@@/    *&@@@@@&&#((%&&@@@%&  
+   .@@@@@@@&&%%%&@@@@@&      &@@@&(@&&*,@@@@@@&@@%       #@@@&@@&&%*#%&@@@@@%/@%
+   ,@@@@@@@@@@@@@@@@.     %@&&#@&%@&&@(@@&&&&@@&@#       .@@@@@&%(#&@@@@&@@@% %@
+     &@@@@@@&.          #@@#&@&@#@@@@@@@@@@&&&&&@@@          @@@@@@@@@@@@@@@# &@
+                       %@@@&@&&/@@@&&%%&@@@&&&&&&&@&              ,&@@@@@@@  %@ 
+                       &@@##@&@@@/&@&&&&&&%&&&&&&&&@&@(,&.@@@@@//          /&@  
+                    *%%@@&@*(@&&&&&&&&%%%&&&&&&&&@&&%#%#        . @@&&   &@@    
+            @&@&@@%%%%&@@@@&&&@&@&@@&&@@@@%%%&&@@@@@@##%%%%%%*        &&&@      
+    &&@@ ,      #%%&&&@@@@@&@@@&%&##&%%(##@@@@&@@@@@@@&%%%%%%%%   .@@@   &&     
+ &@,          *%&@@@&&@@@@@@@@@&&@@@@@@@&%&@@@@@@@@@@%@@&@@@%&&  @@       #&.   
+.&@          %&@@@@@@@@@@@@@@@@@&&%#((/**/(%&&&@@@@@@@@@@@&&@%@  @&@@@@@@*&@(   
+  ,*@@&/&&#%&&@&&&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&&&%@%&%%,  /@@    .     
+          (@@@&&%%%########%%%%%&&&&&&&&@&@@@@@@@@@@@@@@@&@%&@&@&@@@&@(         
+          &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&&&%%%#((%&@@@%##/                 
+          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&##                  
+          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&@@@@@@&#                   
+          *@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&(                   
+                                 .,/#&&&@@@@@@@@@@@@@@@@@@@#  """) 
 
+def hauntedhouse():
+    return('''
+                                                                                                                                                                                                     
+                                                                                                   p                                                                                             
+                                                                                                   ].                                                                                            
+                                                                                                  o{!,                                                                                           
+                                                                                                  !X};                                                                                           
+                                                                                                   }1                                                                                            
+                                                                            a:                     [)                                                                                            
+                                                                           .[)o,                   OI                                                                                            
+                                                                           .([.                   iBO                  .a                                                                        
+                                                                            p]                   o8BBI                 i)                                                                        
+                                                                            i#                   MBBB8a                p(                                                                        
+                                                                           .YBo                 [BBBBBW,               ;1                                                                        
+                                                                          ,YBB{                iBBBBBBBQ               [#                                                                        
+                                                                          OBBBB!              a&BBBBBBBB)             oBB)                                                                       
+                                                                         ;8BBBBX             o&BBBBBBBBBBp            OBB#                                                                       
+                                                                        ;#BBBBBBp           o&BBBBBBBBBBB&:          p8BB8:                                                                      
+                                                                       I8BBBBBBBO          ;&BBBBBBBBBBBBBM,        :&BBBBQ                                                                      
+                                                                      o8BBBBBBBBBQ.       :MBBBBBB&&W8BBBBB#.       XBBBBBBQ                                                                     
+                                                                     aWBBBBBBBBBBB)       XBBBBBBW:),(BBBBBBX.     (BBBBBBBB}                                                                    
+                                                                    ;&BBBBBBBBBBBB#       .:aWBBBW:];{BBBBBBI      &BBBBBBBBBi                                                                   
+                                                                    QBBBBBBBBBBBBBB(         OBBBQ.{.)BBBBBBo      I}8BW#8BBB[                                                                   
+                                                                    o!i[BBB&MMBBB&YQ         {BBBQaO;[BBBBBBa        WBXI}BBO                                                                    
+                                                                       :BBB)]aBBB(          ;WBBBBBBBBBBBBBB[       a8BM[{BBO                                                                    
+                                                                       oBB8(}18BB(         i&BBBBBBBBBBBBBBBBY,    oWBBBBBBBX                                                                    
+                                                                       oBBBI{I8BB[       .{BBBBBBBBBBBBBBBBBBBW(. oWBBBBBBBBY                                                                    
+                                                                       oBBBBBBBBBWp     !MBBBBBBB}1)Ypo#BBBBBBBBM]WBBBBBBBBBY                                                                    
+                                                                       oBBBBBBBBBBBOo aOBBBBBBBBBo ,Q;:YBBBBBBBBBBBBBBBBBBBB[                                                                    
+                                                                       ,&BBBBBBBBBBBBWBBBBBBBBBB&  a[  YBBBBBBBBBBBBBBBBBBB8i.                                                                   
+                                                                        YBBBBBBBBBBBBBBBBBBBBBBB8OO##OX&BBBBBBBBBBBBBBBBBBBBBM(                                                                  
+                                                                        OBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB88BBBBBBB#XYBBBB#[!,                                                              
+                                                                        QBBBBBQ)iWBBBBBB(I(&BBBBBBM(1OBBBBBBB{:.1BBBBBB8, .#BBBBBB8)                                                             
+                                                                    ;(XWBBBBB8:  WBBBBB8o  YBBBBBB]  ]BBBBBBB},:p8BBBBB8QOQWBBBBBBB[                                                             
+                                                                    [BBBBBBBB8YXX8BBBBBBWWW8BBBBBB&WM&BBBBBBB8888BBBBBBBBBBBBBBBBBB[                                                             
+                                                                    iBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&Qp                                                           
+                                                                    }BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8BBBBBBBBBBBp                                                          
+                                                                    XBBBBBBBBMa;QBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB[:o8BBBBBBBBBBo                                                          
+                                                                    #BBBBBBBBW;:{BBBBBBBBBBBBBBBBWXiX{W8BBBBBBBBBBBBBBBB(.,MBBBBBBBBBBa                                                          
+                                                                   ;BBBBBBBBBB88BBBBBBBBBBBBBBBB8OY]#}#O8BBBBBBBBBBBBBBB8888BBBBBBBBBB!                                                          
+                                                                   (BBBBBBBBBBBBBBBBBBBBBBBBBBBBM(XI#I#1MBBBBBBBBBBBBBBBBBBBBBBBBBBBBB1                                                          
+                                                                   [BBBBBBBBBBBBBBBBBBBBBBBBBBBBMIO!#1X1YBBBBBBBBBBBBBBBBBBBBBBBBBBBBBM,                                                         
+                                                                  .}BBBBBBBBBBBBBBBBBBBBBBBBBBBB&O#}W{MOWBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBO                                                         
+                                                               o(X&BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB(                                                        
+                                                            :(#BBBBBBBBBBBBBBBBBBBBBBBBB ___________.__             BBBBBBBBBBBBBBBBBBBBY!                                                         
+                                                          o{8BBBBBBBBBBBBBBBBBBBBBBBBBBB \__    ___/|  |__   ____   BBBBBBBBBBBBBBBBBBBBBY!                                                   
+                                                        aQBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB   |    |   |  |  \_/ __ \  BBBBBBBBBBBBBBBBBBBBBBBBBY!                                                     
+                                                      oO&#MBBBBBBBBBBBBBBBBBBBBBBBBBBBBB   |    |   |   Y  \  ___/  BBBBBBBBBBBBBBBBBBBBBBBBBBBXo                                                 
+                                                    ,{B&[M8BBBBBBBBBBBBBBBBBBBBBBBBBBBBB   |____|   |___|  /\___  > BBBBBBBBBBBBBBBBBBBBBBBBBBBBB8Oo                                            
+                                                   1WBBM&BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                 \/     \/  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8Q1,                                                 
+                                                 :QBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBXBBBB8X8BWXB8QOO{XBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&QI:                                        
+                                                !&BBBBBBBBBBBBBBBBBBBBBBB8###8W##WBB#&BB&##MB###&##M8B&&BB&WMWBB###YYY#WM##M8BBBBBBBBBBBBBBBBBBBBBBBBBBB8Y(:                                     
+                                               }BBBBBBBBBBBBBBBBBBBBBBBBBB   ___ ___                      __             .___ BBBBBBBBBBBBBBBBBBBBBBBBBBB8}:                                   
+                                             :XBBBBBBBBBBBBBBBBBBBBBBBBBBB  /   |   \_____   __ __  _____/  |_  ____   __| _/ B8BBBBBBBBBBBBBBBBBBBBBBBBBBBBB&)                                  
+                                            !WBBBBBBBBBBBBBBBBBBBBBBBBBBBB /    ~    \__  \ |  |  \/    \   __\/ __ \ / __ |  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB#a                                
+                                          oOBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB \    Y    // __ \|  |  /   |  \  | \  ___// /_/ |  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB{,                              
+                                        oO8BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB  \___|_  /(____  /____/|___|  /__|  \___  >____ |  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB&1                             
+                                     .iQBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB        \/      \/           \/          \/     \/  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBYo                           
+                                 .oIOWBBBWMMW8BBBBBBBBBBBBBBBBBBBBBBBBBBBBB88BB8BB8BBBBBBBB88BBBBB88BBM8BBB8WBBBBB8888BBB8&8BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8},                         
+                             :i[Y&BBB8MXQOQYW8BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB   ___ ___                              BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBW)                        
+                           iYBBBBBB8WMM&BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB  /   |   \  ____  __ __  ______ ____   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB#a                      
+                         :XBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB /    ~    \/  _ \|  |  \/  ___// __ \  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB}:                    
+                       .)&BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB \    Y    (  <_> )  |  /\___ \\  ___/  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8Oa                  
+                   ;i(Q&BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB  \___|_  / \____/|____//____  >\___  > BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBY1                
+              :i]XWBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB        \/                   \/     \/  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBW(,             
+          oI{M8BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8};           
+      ,IOM888BB88BBBB8888BBBB8888BBBB8888BBBB8888BBBB8888BBBB8888BBBB8888BBBB8888B8BB88BB8BBBBB88BBBBBBBBBBBBBB8BBBBBB888BBBB88888B888888BBBB8888BBB8&&&&&&&&&&&&&88888888888888888BB8{o         
+       ,,....:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::,.............,,,,,::::::::::,,:::;:         
+                                                                                                                                                                                                                                                                                                                                                                                        
+    ''')
 # smallspoopyman()

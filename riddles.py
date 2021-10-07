@@ -8,6 +8,8 @@ dollcolourr = 255
 dollcolourg = 192
 dollcolourb = 203
 
+metd = 0
+
 def riddlepreamble():
 	typewriter("You find yourself in complete darkness. \n")
 	time.sleep(5)
@@ -29,6 +31,11 @@ Watching you try to escape my house has been really fun! \n''', 100)
 	typewriter("I know we're going to have so much fun, you can stay forever!\n", 100)
 	resetpointer()
 
+def riddlepreamble_met():
+	typewriter("You find yourself back in the dark room, the doll highlighted by a flickering spotlight")
+	setforegroundrgb(dollcolourr, dollcolourg, dollcolourb)
+	print("Welcome back! I'm glad you enjoyed last time so much you came back!")
+
 def randriddle(prev = None):
 	'''selects and asks a random riddle, returns a bool of whether the answer was correct'''
 	questions = [
@@ -44,7 +51,12 @@ def randriddle(prev = None):
 		]
 	answers = ["mouse","coldspell","icecream","mummy","livingroom","coffin","spelling", "deadsea", "cemetary"]
 	os.system('cls')
-	riddlepreamble()
+	global metd
+	if metd == 0:
+		riddlepreamble()
+		metd = 1
+	else:
+		riddlepreamble_met()
 
 	rgbprint("Sooooooo... \n", dollcolourr, dollcolourg, dollcolourb)
 	int_ = r.randint(0, len(questions) - 1)
@@ -61,13 +73,13 @@ def randriddle(prev = None):
 		time.sleep(2)
 		return(1)
 	else:
-		rgbprint("No, silly! Looks like you get to visit my house all over from the start! ", dollcolourr, dollcolourg, dollcolourb)
-		time.sleep(0.5)
-		rgbprint("See you again later, though you won't remember me! BYYYYEEEEE!", dollcolourr, dollcolourg, dollcolourb)
-		time.sleep(2)
+		rgbprint("No, silly!", dollcolourr, dollcolourg, dollcolourb)
+		# time.sleep(0.5)
+		# rgbprint("See you again later, though you won't remember me! BYYYYEEEEE!", dollcolourr, dollcolourg, dollcolourb)
+		# time.sleep(2)
 		return(0)
 
 # riddlepreamble()
-randriddle()
+# randriddle()
 
 # rgbprint("test test", dollcolourr, dollcolourg, dollcolourb)

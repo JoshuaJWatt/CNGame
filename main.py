@@ -2,12 +2,13 @@ import time, os, sys
 import colours as c
 import worlddisplay, hangman, dicegame, riddles, story
 
+play = True
+
 def main():
-    play = True
+    global play
     play = story.intro()
     while play == True:
         worlddisplay.gamemap()
-    os.system('cls')
-    story.thanks()
+    time.sleep(60)
 
 main();

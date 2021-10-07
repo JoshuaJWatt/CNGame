@@ -158,4 +158,4 @@ def hangman():
         resetpointer()
         return(0)
 
-hangman()
+# hangman()

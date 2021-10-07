@@ -50,7 +50,7 @@ def dicegame(cpcheat = 0, skew = None, debug = 0):
 			pcnt += 1
 			# print("You are on ", playerscore)
 			in_ = input("Would you like to roll? (y/n): ")
-			if in_ == "y":
+			if "y" in in_:
 				print("you roll your die")
 				time.sleep(1)
 				print("and it lands on....")
@@ -92,7 +92,9 @@ def dicegame(cpcheat = 0, skew = None, debug = 0):
 					cppass = 1
 			else:
 				cppass = 1
-			print("your opponent is on ", cpscore)
+			os.system('cls')
+			print("You are on ", playerscore, "in ", pcnt)
+			print("your opponent is on ", cpscore, "in ", cpcnt)
 			if cpscore > 21:
 				win = 1
 				print("The house went bust, you win. You can feel the man's annoyance, a hot, red pressure in your mind")
@@ -115,6 +117,7 @@ def adjustbias(wins, games):
 
 def bestof(n = 3, debug = 0):
 	'''Runs a best of n of our dice game'''
+	
 	os.system('cls')
 	dicepreamble()
 	gamecnt = 0
@@ -127,11 +130,13 @@ def bestof(n = 3, debug = 0):
 		print("You won the best of ", n)
 		win = 1
 		print("Sleep envelopes you. But you do not fall... ")
+		time.sleep(3)
 	else:
 		print("You lost the best of ", n)
 		win = 0
 		print('''The laughter won't stop now, it is constant, and deafening. 
 		You cover your ears, but that doesn't help, in fact it appears to amuse the man even more as his laughter somehow gets louder. You're head is on the verge of exploding''')
+		time.sleep(3)
 	return(win)
 
 
