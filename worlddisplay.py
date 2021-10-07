@@ -217,6 +217,7 @@ def gamemap():
 	global play
 	while play == True:
 		colours.setforegroundrgb(252,76,2)
+		moveplayer(0,0)
 		if playerscore == 4:
 			print("You've got all 4 numbers, you should try getting out of the front door")
 		printview(viewwindow(playerpos))
