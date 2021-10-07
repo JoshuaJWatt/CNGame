@@ -1,55 +1,92 @@
-from math import trunc
-import colours, hangman, dicegame, riddles
+import colours, hangman, dicegame, riddles, story
 import rockpaperscissors as rps
+from typewriter import typewriter
 import sys, os
 import random
 import time
 
 worldsize = [5,5]
 
-world = [["|","x","L","=","D","¬"],
-		 ["|",".",".",".",".","D"],
-		 ["|","=","=",".","/","="],
-		 ["|",".",".",".","D","+"],
-		 ["D",".","|",".","L","¬"],
-		 ["|",".","D",".",".","D"],
-		 ["L","=","┴","D","=","/"]]
+# world = [["|","x","L","=","D","¬"],
+# 		 ["|",".",".",".",".","D"],
+# 		 ["|","=","=",".","/","="],
+# 		 ["|",".",".",".","D","+"],
+# 		 ["D",".","|",".","L","¬"],
+# 		 ["|",".","D",".",".","D"],
+# 		 ["L","=","┴","D","=","/"]]
 
-viewsize = 2
+world =[["=","=","=","=","=","=","D","=","=","=","="],
+		["=","=","="," ","=","=","x","=","=","=","="],
+		["="," "," "," "," "," "," ","=","D","=","="],
+		["="," ","=","=","=","=","=","="," "," ","="],
+		["="," ","D","=","=","=","=","D"," ","=","="],
+		["="," ","=","=","=","=","=","="," ","=","="],
+		["="," "," "," "," "," "," "," "," ","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","D"," ","D","=","=","=","D","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","D","=","="," ","=","=","=","="," ","="],
+		["="," "," "," "," "," "," "," "," "," ","="],
+		["=","=","=","=","=","=","=","="," ","=","="],
+		["=","=","=","=","=","=","=","=","D","=","="]]
 
-playerpos = (0,1)
-playerscore = 0
+viewsize = 1
 
-usabledoors = [[5,1],[0,4],[5,5],[3,6]]
+playerpos = (0,6)
+playerscore = 4
+
+usabledoors = [[7,4],[1,13],[5,10],[9,10]]
 currentdoor = []
 gamelist = [0, 1, 2, 3]
-exit = [0,1]
+playedlist = []
+exit = [6,0]
 
 playersprite = "x"
-floortile = "."
+floortile = " "
 doortile = "D"
+
+play = True
+metd = 0
+
+
 
 def reset():
 	global world
 	global viewsize
+	global playerpos
 	global playerscore
 	global usabledoors
-	global gamelist
+	global playedlist
 	global exit
+	global metd
 
-	world = [["|","x","L","=","D","¬"],
-		 ["|",".",".",".",".","D"],
-		 ["|","=","=",".","/","="],
-		 ["|",".",".",".","D","+"],
-		 ["D",".","|",".","L","¬"],
-		 ["|",".","D",".",".","D"],
-		 ["L","=","┴","D","=","/"]]
-	viewsize = 2
-	playerpos = (0,1)
+	world = [["=","=","=","=","=","=","D","=","=","=","="],
+		["=","=","="," ","=","=","x","=","=","=","="],
+		["="," "," "," "," "," "," ","=","D","=","="],
+		["="," ","=","=","=","=","=","="," "," ","="],
+		["="," ","D","=","=","=","=","D"," ","=","="],
+		["="," ","=","=","=","=","=","="," ","=","="],
+		["="," "," "," "," "," "," "," "," ","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","="," ","=","=","=","=","=","="],
+		["=","=","=","D"," ","D","=","=","=","D","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","=","=","="," ","=","=","=","="," ","="],
+		["=","D","=","="," ","=","=","=","="," ","="],
+		["="," "," "," "," "," "," "," "," "," ","="],
+		["=","=","=","=","=","=","=","="," ","=","="],
+		["=","=","=","=","=","=","=","=","D","=","="]]
+	viewsize = 1
+	playerpos = (0,6)
 	playerscore = 0
-	usabledoors = [[5,1],[0,4],[5,5],[3,6]]
-	gamelist = [0, 1, 2, 3]
-	exit = [0,1]
+	usabledoors = [[7,4],[1,13],[5,10],[9,10]]
+	playedlist = []
+	exit = [0,6]
+	metd = 0
 
 def viewwindow(centre = (0,0)):
 	# This will do the columns
@@ -58,7 +95,7 @@ def viewwindow(centre = (0,0)):
 
 	if lowerbound < 0:
 		view = world[:upperbound]
-	elif upperbound > len(world[0]) + 1:
+	elif upperbound > len(world) + 1:
 		view = world[lowerbound:]
 	else:
 		view = world[lowerbound:upperbound]
@@ -88,22 +125,31 @@ def setplayerloc(x, y):
 
 def doorcheck(x, y):
 	global currentdoor
+	global play
 	if [x,y] in usabledoors:
 		currentdoor = [x,y]
 		return(1)
 	if[x,y] == exit:
 		if playerscore == 4:
-			print("You type the code in and find the door will now open")
-			print("You get away and live a happy life or something, idk")
+			story.escape()
+			# play = False
+			return(-1)
 		else:
-			print("The door won't budge")
+			print("The door won't budge, and you don't know the code yet")
 	else:
 		return(0)
 
 def choosegame():
 	global gamelist
-	game = random.choice(gamelist)
-	gamelist.pop(game)
+	global playedlist
+	chosen = 0
+	while chosen == 0:
+		game = random.choice(gamelist)
+		if game in playedlist:
+			continue
+		else:
+			playedlist.append(game)
+			chosen = 1
 	return(game)
 
 def gamefuncer(n):
@@ -114,7 +160,7 @@ def gamefuncer(n):
 	elif n == 2:
 		out = riddles.randriddle()
 	elif n == 3:
-		out = rps.rockpaperscissors()
+		out = rps.bestof()
 	else:
 		return
 	return(out)
@@ -122,6 +168,8 @@ def gamefuncer(n):
 def moveplayer(x = 0, y = 0):
 	global playerpos
 	global world
+	global play
+	loc = [playerpos[0],playerpos[1]]
 	for i in range(len(world)):
 		#locate the player sprite in the world, we probably don't need to do this anymore
 		try:
@@ -130,7 +178,7 @@ def moveplayer(x = 0, y = 0):
 			# loc.reverse()
 			# print(world[(loc[1])+y][(loc[0])+x])
 		except UnboundLocalError:
-			loc = playerpos
+			[playerpos[0],playerpos[1]]
 		except ValueError:
 			continue
 		except IndexError:
@@ -139,14 +187,17 @@ def moveplayer(x = 0, y = 0):
 	if world[(loc[1])+y][(loc[0])+x] != floortile and world[(loc[1])+y][(loc[0])+x] != playersprite:
 		if world[(loc[1])+y][(loc[0])+x] == doortile:
 			print("You found a door")
-			if doorcheck(loc[0]+x,loc[1]+y) == 0:
+			doorch = doorcheck(loc[0]+x,loc[1]+y)
+			if doorch == 0:
 				print("The door is locked")
+			elif doorch == -1:
+				play = False
 			else:
 				print("It's unlocked")
 				doorin = input("Do you want to go in? ")
 				doorin = doorin.lower()
 				if "y" in doorin:
-					print("chooses a game to start")
+					# print("chooses a game to start")
 					# out = gamefuncer(choosegame())
 					room()
 					# return out
@@ -162,10 +213,15 @@ def moveplayer(x = 0, y = 0):
 def gamemap():
 	os.system('cls')
 	moveplayer(0,0)
-	while True:
+	global play
+	while play == True:
+		colours.setforegroundrgb(252,76,2)
+		if playerscore == 4:
+			print("You've got all 4 numbers, you should try getting out of the front door")
 		printview(viewwindow(playerpos))
 		input_ = input("where to? (n/s/e/w) ")
 		input_ = input_.lower()
+		colours.resetpointer()
 		os.system('cls')
 		if input_ == "n":
 			moveplayer(0,-1)
@@ -175,6 +231,7 @@ def gamemap():
 			moveplayer(1,0)
 		elif input_ == "w":	
 			moveplayer(-1,0)
+	play = False
 
 def room():
 	global playerscore
@@ -205,9 +262,14 @@ def room():
 				continue
 
 			else:
+				colours.setforegroundrgb(255,192,203)
 				os.system('cls')
-				print("Looks like you're goin back to the start")
+				print("Looks like you get to start again.")
+				print("See you again later, though you won't remember me! BYYYYEEEEE!")
 				time.sleep(2)
+				colours.resetpointer()
 				reset()
 				loop = False
 				break
+
+# escape()
