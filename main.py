@@ -1,6 +1,5 @@
-import time, os, sys
-import colours as c
-import worlddisplay, hangman, dicegame, riddles, story
+import time
+import worlddisplay,  story
 
 play = True
 
