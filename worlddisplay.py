@@ -198,10 +198,8 @@ def moveplayer(x = 0, y = 0):
 				doorin = input("Do you want to go in? ")
 				doorin = doorin.lower()
 				if "y" in doorin:
-					# print("chooses a game to start")
-					# out = gamefuncer(choosegame())
+					# Puts the player in a 'room' starting a random game
 					room()
-					# return out
 		else:
 			print("You can't walk through walls, sadly")
 	else:
