@@ -36,7 +36,7 @@ world =[["=","=","=","=","=","=","D","=","=","=","="],
 viewsize = 1
 
 playerpos = (0,6)
-playerscore = 4
+playerscore = 0
 
 usabledoors = [[7,4],[1,13],[5,10],[9,10]]
 currentdoor = []
@@ -166,6 +166,7 @@ def gamefuncer(n):
 	return(out)
 
 def moveplayer(x = 0, y = 0):
+	# The code here is self documenting. Enjoy,
 	global playerpos
 	global world
 	global play
