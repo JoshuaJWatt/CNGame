@@ -93,7 +93,7 @@ def display_hangman(tries):
     return stages[tries]
 
 def hangman():
-    os.system('cls')
+    print("\033c")
     setpointercolour("magenta")
     hangmanpreamble()
     time.sleep(2)
@@ -145,7 +145,8 @@ def hangman():
                     wrong.append(guess)
                     time.sleep(1)
 
-        os.system('cls')
+        print("\033c")
+        setpointercolour("magenta")
 
     if tries:
         print("You guessed correctly:", words)

@@ -10,7 +10,7 @@ Walls and walls of bookcases, stacked with books hundreds of meters high stretch
 And yet you feel constricted, crushed, as if trapped in a box half your size, crushed by the pressure of the 
 millions of books that surround you.''')
 	time.sleep(4)
-	os.system('cls')
+	print("\033c")
 	smallspoopyman()
 	typewriter('''
 A flickering figure appears by the desk and you feel yourself moving to join him. 
@@ -40,6 +40,8 @@ def dicegame(cpcheat = 0, skew = None, debug = 0):
 	while win < 0:
 		playerpass = 0
 		cppass = 0
+		playerscore = 0
+		cpscore = 0
 		if debug == 1:
 			playerscore = int(input("pscore: "))
 			pcnt = int(input("pcnt: "))
@@ -61,7 +63,7 @@ def dicegame(cpcheat = 0, skew = None, debug = 0):
 				playerscore += proll
 			else:
 				playerpass = 1
-			os.system('cls')
+			print("\033c")
 			print("You are on ", playerscore)
 			if playerscore > 21:
 				win = 0
@@ -92,7 +94,7 @@ def dicegame(cpcheat = 0, skew = None, debug = 0):
 					cppass = 1
 			else:
 				cppass = 1
-			os.system('cls')
+			print("\033c")
 			print("You are on ", playerscore, "in ", pcnt)
 			print("your opponent is on ", cpscore, "in ", cpcnt)
 			if cpscore > 21:
@@ -118,15 +120,15 @@ def adjustbias(wins, games):
 def bestof(n = 3, debug = 0):
 	'''Runs a best of n of our dice game'''
 	
-	os.system('cls')
+	print("\033c")
 	dicepreamble()
 	gamecnt = 0
 	wincnt = 0
-	while wincnt < n/2 + 1 and gamecnt < n:
+	while wincnt < int(n/2) + 1 and gamecnt < n:
 		wincnt += dicegame(debug = debug)
 		gamecnt += 1
 		print("You have won {} out of {} games".format(wincnt,gamecnt))
-	if wincnt >= n/2 + 1:
+	if wincnt >= int(n/2) + 1:
 		print("You won the best of ", n)
 		win = 1
 		print("Sleep envelopes you. But you do not fall... ")

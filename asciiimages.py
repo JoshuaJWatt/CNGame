@@ -1,4 +1,3 @@
-from PIL import Image
 import colours
 
 def smallspoopyface():
@@ -164,7 +163,8 @@ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 ''')
 
 def old_telephone():
-    return(""".*(#%%%%%#(/.                                    
+    return("""        
+                                .*(#%%%%%#(/.                                    
                    ,&&&@@@@@&&&&&&&%&%%%%%&&&&&&&@@@@@&#%,                      
              /&&@@&&&&&@@%#@&&&&&&&&&&&%%%%%###((((##((((#%&@@@/                
         *&&&@@@&##%&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#(/%@@@&(           

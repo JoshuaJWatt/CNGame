@@ -126,9 +126,7 @@ def setplayerloc(x, y):
 def doorcheck(x, y):
 	global currentdoor
 	global play
-	if [x,y] in usabledoors:
-		currentdoor = [x,y]
-		return(1)
+	print("You found a door")
 	if[x,y] == exit:
 		if playerscore == 4:
 			story.escape()
@@ -136,6 +134,10 @@ def doorcheck(x, y):
 			return(-1)
 		else:
 			print("The door won't budge, and you don't know the code yet")
+			return(0)
+	if [x,y] in usabledoors:
+		currentdoor = [x,y]
+		return(1)
 	else:
 		return(0)
 
@@ -187,7 +189,6 @@ def moveplayer(x = 0, y = 0):
 			return(False)
 	if world[(loc[1])+y][(loc[0])+x] != floortile and world[(loc[1])+y][(loc[0])+x] != playersprite:
 		if world[(loc[1])+y][(loc[0])+x] == doortile:
-			print("You found a door")
 			doorch = doorcheck(loc[0]+x,loc[1]+y)
 			if doorch == 0:
 				print("The door is locked")
@@ -210,7 +211,7 @@ def moveplayer(x = 0, y = 0):
 		playerpos = (loc[0],loc[1])
 
 def gamemap():
-	os.system('cls')
+	print("\033c")
 	moveplayer(0,0)
 	global play
 	while play == True:
@@ -222,7 +223,7 @@ def gamemap():
 		input_ = input("where to? (n/s/e/w) ")
 		input_ = input_.lower()
 		colours.resetpointer()
-		os.system('cls')
+		print("\033c")
 		if input_ == "n":
 			moveplayer(0,-1)
 		elif input_ == "s":
@@ -237,7 +238,7 @@ def room():
 	global playerscore
 	global usabledoors
 	global currentdoor
-	os.system('cls')
+	print("\033c")
 	print("You enter the room")
 	time.sleep(2)
 	game = choosegame()
@@ -247,7 +248,7 @@ def room():
 		roomres = gamefuncer(game)
 		if roomres == 1:
 			time.sleep(2)
-			os.system('cls')
+			print("\033c")
 			print("You won the room, you find yourself back outside the door with a new number written on your hand")
 			time.sleep(2)
 			playerscore += 1
@@ -263,7 +264,7 @@ def room():
 
 			else:
 				colours.setforegroundrgb(255,192,203)
-				os.system('cls')
+				print("\033c")
 				print("Looks like you get to start again.")
 				print("See you again later, though you won't remember me! BYYYYEEEEE!")
 				time.sleep(2)

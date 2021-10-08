@@ -21,7 +21,7 @@ But nobody ever leaves...")
 
 	while True:
 		ans = input("Welcome to the haunted house game, would you like to play? (y/n)" )
-		os.system('cls')
+		print("\033c")
 		if "n" in ans:
 			return(False)
 		elif "y" in ans:
@@ -30,7 +30,7 @@ But nobody ever leaves...")
 			typewriter(message_3)
 			print(old_telephone())
 			time.sleep(3)
-			os.system('cls')
+			print("\033c")
 			typewriter("You pick up the receiver and a strange voice speaks: \n")
 			typewriter(message_4, speed = 0.3)
 
@@ -38,7 +38,7 @@ But nobody ever leaves...")
 
 def escape():
 	global play
-	os.system('cls')
+	print("\033c")
 	typewriter('''You have all 4 numbers now, so you should be allowed to leave. 
 You try the handle, and it actually turns. You tentatively pull the door open, it could just be a trick after all. 
 As soon as the door is opened far enough you run out of it and back down the hill. 
@@ -46,10 +46,10 @@ You jump back into your car, you'll just drive on rims, and deal with the tire i
 	typewriter("You drive off, as quickly as one can with one wheel dragging, atleast relieved that you're finally out of that place...")
 	time.sleep(3)
 	colours.setpointercolour("magenta")
-	os.system('cls')
+	print("\033c")
 	typewriter("A small porcelein doll sits on your back seat. It turns it's head.")
 	time.sleep(3)
-	os.system('cls')
+	print("\033c")
 
 	print('''___________.___ _______   
 \_   _____/|   |\      \  
@@ -69,7 +69,7 @@ def thanks():
 	colours.setbackgrounfrgb(72,161,11)
 	print(hauntedhouse())
 	time.sleep(5)
-	os.system('cls')
+	print("\033c")
 	print(pumpkinout())
 	print("Thanks for playing!")
 	time.sleep(20)

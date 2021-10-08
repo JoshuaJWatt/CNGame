@@ -12,23 +12,24 @@ def rpspreamble():
 Your eyes follow the cat as it makes it's way across the surprisingly messy room, climbing it's way through dead plants; over open, strewn books and around half-mixed potions.
 You notice, now, that there are messily drawn pentagrams all over, obviously redrawn in the same spots hundredes of times over. \n''')
 	cprint("MR SCRATCHY EARS! WHERE HAVE YOU BEEN?!?!?!", "red")
+	setforegroundrgb(72,161,11)
 	typewriter("While you were distracted, the cat had evidently made it to it's destination... \n\n")
 
 	time.sleep(2)
 
 	cprint(medfullwitch(),"red")
-
 	time.sleep(2)
 
 	cprint(''' \n "YOU!!!!" ''', "red")
-
+	setforegroundrgb(72,161,11)
 	print("She doesn't appear happy")
 
 	cprint("YOU STOLE MY BABY! I'VE BEEN SEARCHING FOR MY MR SCRATCHY EARS ALL OVER", "red")
-
+	setforegroundrgb(72,161,11)
 	typewriter("You start to open your mouth to explain the situation, but the witch waves her hand and a cloud of purple smoke hits you. You find yourself unable to speak, or even move. (oh no) \n")
 
-	cprint("I DON'T WANT TO HEAR IT.", "red") 
+	cprint("I DON'T WANT TO HEAR IT.", "red")
+	setforegroundrgb(72,161,11) 
 	time.sleep(1)
 	typewriter('''Appearing to calm a little, she sits for a moment, in thought. \n''')
 	time.sleep(5)
@@ -78,13 +79,14 @@ You'll play against your right hand, you'll not get me playing that game''', "re
 def rockpaperscissors():
 	win = -1
 	list = ["Rock","Paper","Scissors",]
-	os.system('cls')
+	# print("\033c")
 	# rpspreamble()
 	while win < 0:
 		Black_cat = list[randint(0,2)]
 		player = input("Rock, Paper, Scissors?\nEnter your move\n")
 		player = player.capitalize()
 		if player == Black_cat:
+			print("Your right hand chooses {}".format(Black_cat))
 			print("Draw")
 			print("Looks like you need to give it another go" )
 		elif player == "Rock":
@@ -120,23 +122,29 @@ def rockpaperscissors():
 
 def bestof(n = 3, debug = 0):
 	'''Runs a best of n of our dice game'''
+	print("\033c")
 	setforegroundrgb(72,161,11)
-	os.system('cls')
-	rpspreamble()
+	# rpspreamble()
 	gamecnt = 0
 	wincnt = 0
-	while wincnt < n/2 + 1 and gamecnt < n:
+	while (wincnt < int(n/2) + 1) or (gamecnt < n):
 		wincnt += rockpaperscissors()
+		time.sleep(2)
+		print("\033c")
+		setforegroundrgb(72,161,11)
 		gamecnt += 1
 		print("You have won {} out of {} games".format(wincnt,gamecnt))
-	if wincnt >= n/2 + 1:
+		if (n - gamecnt) < (int(n/2) + 1 - wincnt):
+			print("You have lost the best of ", n)
+			win = 0
+	if wincnt >= (int(n/2) + 1):
 		print("You won the best of ", n)
 		win = 1
 		print("Sleep envelopes you. But you do not fall... ")
 	else:
 		print("You lost the best of ", n)
 		win = 0
-		print('''''')
+		print('''A cloud of purple smoke envelops you...''')
 	resetpointer()
 	return(win)
 
