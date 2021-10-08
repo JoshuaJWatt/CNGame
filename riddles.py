@@ -27,7 +27,7 @@ Watching you try to escape my house has been really fun! \n''', 100)
 	typewriter("And, seeing as we've finally met, I want to introduce you to my favourite thing to do with visitors! \n", 10)
 	time.sleep(3)
 	print("\n RIDDLES! YAAAY!\n")
-	typewriter("The best bit about my riddles is that if you get them wrong, you have to start the house all over a!ain!\n",)
+	typewriter("The best bit about my riddles is that if you get them wrong, you have to start the house all over again!\n",)
 	typewriter("I know we're going to have so much fun, you can stay forever!\n", 100)
 	resetpointer()
 
@@ -50,7 +50,7 @@ def randriddle(prev = None):
 		"You’ll find me in the quietest, creepiest place in town, yet people are dying to get in. What am I?"
 		]
 	answers = ["mouse","coldspell","icecream","mummy","livingroom","coffin","spelling", "deadsea", "cemetary"]
-	os.system('cls')
+	print("\033c")
 	global metd
 	if metd == 0:
 		riddlepreamble()

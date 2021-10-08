@@ -46,7 +46,7 @@ def convert_video():
         cv2.imshow('image', frame) 
         k = cv2.waitKey(5)
 
-        os.system('cls') 
+        print("\033c") 
         i += 1
         tmp = open('./out/RES('+str(i)+').txt','w') 
         frame = cv2.resize(frame, (0,0), fx=wratio, fy=hratio)

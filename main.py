@@ -5,9 +5,10 @@ play = True
 
 def main():
     global play
-    play = story.intro()
+    # play = story.intro()
     while play == True:
         worlddisplay.gamemap()
     time.sleep(60)
 
 main();
+
